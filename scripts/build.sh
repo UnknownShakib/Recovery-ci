@@ -15,7 +15,6 @@ else
 fi
 
 
-
 # Prepare the Build Environment
 source build/envsetup.sh
 
@@ -25,7 +24,10 @@ export ALLOW_MISSING_DEPENDENCIES=true
 
 
 # lunch the target
-lunch omni_${DEVICE}-eng
+lunch omni_${DEVICE}-eng || { echo "ERROR: Failed to Lunch!" && exit 1; }
+
+# run extra command
+eval "${EXTRA_CMD}"
 
 # Build the Code
 if [ -z "$J_VAL" ]; then
