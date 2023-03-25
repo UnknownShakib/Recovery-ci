@@ -1,11 +1,11 @@
 #!/bin/bash 
 
 # Device
-export TWRP_BRANCH="android-11.0"
-export DT_LINK="https://github.com/gitclone-url/android_device_micromax_E7544 -b PBRP-11"
+export TWRP_BRANCH="android-12.1"
+export DT_LINK="https://github.com/gitclone-url/android_device_motorola_devon-pbrp -b Master"
 
-export DEVICE="E7544"
-export OEM="micromax"
+export DEVICE="devon"
+export OEM="motorola"
 
 # Build Target
 ## "recoveryimage" - for A-Only Devices without using Vendor Boot
