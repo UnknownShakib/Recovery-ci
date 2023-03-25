@@ -7,8 +7,6 @@ export DT_LINK="https://github.com/gitclone-url/android_device_motorola_devon-pb
 export DEVICE="devon"
 export OEM="motorola"
 
-export EXTRA_CMD="rm -rf vendor/pb && git clone --depth=1 https://github.com/Agatha-Prjkt/vendor_pb vendor/pb"
-
 # Build Target
 ## "recoveryimage" - for A-Only Devices without using Vendor Boot
 ## "bootimage" - for A/B devices without recovery partition (and without vendor boot)
