@@ -1,7 +1,6 @@
 env:
     # Twrp Sync Repositor
-    TWRP_SYNC: https://github.com/PitchBlackRecoveryProject/manifest_pb.git
-
+    TWRP_SYNC: https://github.com/PitchBlackRecoveryProject/manifest_pb -b android-12.1
 
     # Config
     CONFIG: config.sh
