@@ -15,6 +15,12 @@ else
     ccache -M ${CCACHE_SIZE}
 fi
 
+# Initialize the latest stable branch
+$ repo init -u https://github.com/PitchBlackRecoveryProject/manifest_pb -b android-12.1
+
+# Sync the latest stable branch
+$ repo sync
+
 # Prepare the Build Environment
 source build/envsetup.sh
 
