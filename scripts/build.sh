@@ -15,8 +15,14 @@ else
     ccache -M ${CCACHE_SIZE}
 fi
 
-
-
+# Build the Code
+if [ -z "$J_VAL" ]; then
+    mka -j$(nproc --all) $TARGET || { echo "ERROR: Failed to Build OrangeFox!" && exit 1; }
+elif [ "$J_VAL"="0" ]; then
+    mka $TARGET || { echo "ERROR: Failed to Build OrangeFox!" && exit 1; }
+else
+    mka -j${J_VAL} $TARGET || { echo "ERROR: Failed to Build OrangeFox!" && exit 1; }
+fi
 
 
 # Prepare the Build Environment
@@ -29,11 +35,6 @@ export ALLOW_MISSING_DEPENDENCIES=true
 
 # lunch the target
 lunch omni_${DEVICE}-eng
-    
-# Build the Code
-
-mka -j$(nproc --all) $TARGET
-
 
 # Exit
 exit 0
