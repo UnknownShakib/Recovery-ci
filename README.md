@@ -1,5 +1,5 @@
-# PBRP Recovery CI
-A Free CI to Build PBRP Recovery
+# 🦊 OrangeFox Recovery CI
+A Free CI to Build OrangeFox Recovery
 
 ## How to Use?
 ### - Fork and Build

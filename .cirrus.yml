@@ -1,34 +1,34 @@
 env:
-    # Twrp Sync Repositor
-    TWRP_SYNC: https://github.com/PitchBlackRecoveryProject/manifest_pb.git
-    
+    # OrangeFox Sync Repository
+    FOX_SYNC: https://gitlab.com/OrangeFox/sync.git
+
     # Config
     CONFIG: config.sh
 
     # Telegram
-    TG_CHAT_ID: 1119385461
-    TG_TOKEN: 2044609608:AAE-lWE9ZXhcLVcWKj5F4DMDYFU7eFIQOm0
+    TG_CHAT_ID: ENCRYPTED[0003e1cf5276424a5b2afb8c6a39f2d830864e8555b37220bd3bf173f3ef5b8769ab98425d96a76adf64b18241c940dd]
+    TG_TOKEN: ENCRYPTED[03de4105db5d23ec42490965c0a0f79217c1e3366cb152bd9d9a045e22586eba675615e1f08bf1aea3e860d499efde60]
 
     # Cirrus Specific Vars (Do *NOT* Change)
     CIRRUS_SHELL: bash
 
 task:
   name: "Recovery Build"
-  timeout_in: 100m
+  timeout_in: 120m
   container:
       image: ghcr.io/sushrut1101/docker:arch
       cpu: 8
       memory: 20G
 
   Checks_script:
-      - curl -sL https://raw.githubusercontent.com/gitclone-url/ci/pbrp/scripts/checks.sh | bash
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/checks.sh)"
 
   Sync_script:
-      - curl -sL https://raw.githubusercontent.com/gitclone-url/ci/pbrp/scripts/sync.sh | bash
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/sync.sh)"
 
   Build_script:
-      - curl -sL https://raw.githubusercontent.com/gitclone-url/ci/pbrp/scripts/build.sh | bash
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/build.sh)"
 
   Upload_script:
       - export TIMEOUT=43200 # Link timeout (in minutes)
-      - curl https://raw.githubusercontent.com/gitclone-url/ci/pbrp/scripts/upload.sh | bash
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/upload.sh)"
