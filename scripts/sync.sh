@@ -10,6 +10,9 @@ cd ~
 repo init --depth=1 -u $TWRP_SYNC -b $TWRP_BRANCH
 repo sync
 
+# run extra command
+eval "${EXTRA_CMD}"
+
 # Clone Trees
 DT_PATH="device/${OEM}/${DEVICE}"
 git clone $DT_LINK $DT_PATH || { echo "ERROR: Failed to Clone the Device Trees!" && exit 1; }
