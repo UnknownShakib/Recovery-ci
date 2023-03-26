@@ -1,8 +1,7 @@
 env:
     # Twrp Sync Repositor
     TWRP_SYNC: https://github.com/PitchBlackRecoveryProject/manifest_pb.git
-    EXTRA_CMD: "rm -rf vendor/pb && git clone --depth=1 https://github.com/Agatha-Prjkt/vendor_pb vendor/pb"
-
+    
     # Config
     CONFIG: config.sh
 
