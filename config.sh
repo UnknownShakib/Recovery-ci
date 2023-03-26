@@ -3,6 +3,7 @@
 # Device
 export TWRP_BRANCH="android-12.1"
 export DT_LINK="https://github.com/gitclone-url/android_device_motorola_devon-pbrp.git -b Master"
+export EXTRA_CMD="rm -rf vendor/pb && git clone --depth=1 https://github.com/Agatha-Prjkt/vendor_pb vendor/pb"
 
 export DEVICE="devon"
 export OEM="motorola"
