@@ -15,7 +15,7 @@ telegram_message() {
 }
 
 # Clone the Sync Repo
-git clone $FOX_SYNC
+git clone https://gitlab.com/OrangeFox/sync.git
 cd sync
 
 # Setup Branch names
@@ -32,8 +32,21 @@ if [ -z "$SYNC_BRANCH" ]; then
     export SYNC_BRANCH=$(echo ${FOX_BRANCH} | cut -d_ -f2)
 fi
 
-# Sync the Sources
-bash orangefox_sync.sh --branch $SYNC_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync OrangeFox Sources!" && exit 1; }
+# Define the command to run
+COMMAND="bash orangefox_sync.sh --branch fox_12.1 --path $SYNC_PATH"
+
+# Run the command and capture its output and exit status
+OUTPUT=$(eval $COMMAND)
+EXIT_STATUS=$?
+
+# Check if the command succeeded or failed
+if [ $EXIT_STATUS -eq 0 ]; then
+  echo "Command succeeded with output:"
+  echo "$OUTPUT"
+else
+  echo "Command failed with exit code $EXIT_STATUS and output:"
+  echo "$OUTPUT"
+fi
 
 # Change to the Source Directory
 cd $SYNC_PATH
