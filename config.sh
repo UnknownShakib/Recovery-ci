@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 # Device
 export FOX_BRANCH="fox_12.1"
